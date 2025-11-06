@@ -1,0 +1,278 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom right, #ffe6e9, #ffffff);
+  transition: background 0.5s ease;
+  color: #1a1a1a;
+}
+
+.dark-mode {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+
+header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to right, #ff9aa2, #ffffff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: background 0.5s ease;
+}
+
+.dark-mode header {
+  background: linear-gradient(to right, #8b0000, #3a0000);
+}
+
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: #c62828;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.dark-mode .profile-name {
+  color: #ffb3b3;
+}
+
+
+nav {
+  display: flex;
+  gap: 50px;
+}
+
+nav a {
+  color: #b71c1c;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #b71c1c;
+  transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+.dark-mode nav a {
+  color: #ffb3b3;
+}
+
+.dark-mode nav a::after {
+  background-color: #ffb3b3;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #c62828;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+
+.container {
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 1000px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.8);
+  transition: background 0.5s;
+}
+
+.shadow {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.dark-mode .container {
+  background: rgba(30,30,30,0.9);
+}
+
+
+.skills-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.skills-track {
+  display: flex;
+  gap: 40px;
+  animation: scrollSkills 20s linear infinite;
+}
+
+.skill-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.skill-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
+.skill-item p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+@keyframes scrollSkills {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.edu-bg {
+  background: url('images/school-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+
+.hobby-item {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.hobby-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.05);
+}
+
+footer a {
+  color: #c62828;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.dark-mode footer {
+  background: rgba(255,255,255,0.05);
+}
+
+.dark-mode footer a {
+  color: #ffb3b3;
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .skills-track {
+    animation-duration: 30s;
+  }
+}
